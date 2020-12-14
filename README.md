@@ -1,6 +1,7 @@
 # Hacker News clone
 
 ![hacker](https://media.giphy.com/media/LcfBYS8BKhCvK/giphy.gif)
+
 Hacker News is a social news website focusing on computer science and entrepreneurship. It is run by Paul Graham's investment fund and startup incubator, Y Combinator. In general, content that can be submitted is defined as "anything that gratifies one's intellectual curiosity."
 
 ## Assignment
