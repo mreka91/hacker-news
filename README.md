@@ -41,3 +41,23 @@ This is our first christmas coding assignment at Yrgo. Our job is to create a Ha
 - [ ] As a user I'm able to delete my comments.
 
 ## Installation
+
+Clone the repository to your computer:
+
+```
+git clone https://github.com/mreka91/hacker-news
+```
+
+Change to the directory:
+
+```
+$ cd path/to/hacker-news
+```
+
+Run a live server:
+
+```
+$ php -S localhost:8000
+```
+
+Open it up in your favourite browser
