@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
+// In this file we login users.
+
 if (isset($_POST['email'], $_POST['password'])) {
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $password = $_POST['password'];
@@ -15,6 +17,7 @@ if (isset($_POST['email'], $_POST['password'])) {
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
     if (!$user) {
+        errorMessage("Password or email does not match. Have you created an account, yet?");
         redirect('/login.php');
     }
 
@@ -28,9 +31,9 @@ if (isset($_POST['email'], $_POST['password'])) {
             'email' => $user['email'],
         ];
 
-        redirect('/');
+        //redirect('/');
+    } else {
+        errorMessage("Password or email does not match. Have you created an account, yet?");
     }
 }
 redirect('/');
-
-// In this file we login users.

@@ -23,5 +23,17 @@
         <li class="nav-item">
             <a class="nav-link" href="/register.php">Register</a>
         </li><!-- /nav-item -->
+
+        <?php if (isset($_SESSION['user'])) : ?>
+            <li class="nav-item">
+                <a class="nav-link" href="/store.php">Create post</a>
+            </li><!-- /nav-item -->
+        <?php endif; ?>
+
+        <?php if (isset($_SESSION['user'])) : ?>
+            <li class="nav-item">
+                <a class="nav-link" href="./app/users/update.php">Edit profile</a>
+            </li><!-- /nav-item -->
+        <?php endif; ?>
     </ul><!-- /navbar-nav -->
 </nav><!-- /navbar -->

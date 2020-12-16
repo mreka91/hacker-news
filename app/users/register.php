@@ -13,6 +13,22 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'])) {
 
     $password = password_hash($password, PASSWORD_DEFAULT);
 
+
+
+    //control email address
+
+    $statement = $database->prepare('SELECT email FROM users WHERE email = :email');
+    $statement->bindParam(':email', $email, PDO::PARAM_STR);
+    $statement->execute();
+    $isEmail = $statement->fetch(PDO::FETCH_ASSOC);
+
+    if ($isEmail) {
+        errorMessage("Email already exists. Try logging in.");
+        redirect('/login.php');
+    }
+
+    //register and add to database
+
     $statement = $database->prepare('INSERT INTO users (name, email, password) VALUES (:name, :email, :password)');
     $statement->bindParam(':name', $email, PDO::PARAM_STR);
     $statement->bindParam(':email', $email, PDO::PARAM_STR);
@@ -20,6 +36,8 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'])) {
     $statement->execute();
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+
 
     redirect('/login.php');
 }

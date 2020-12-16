@@ -2,7 +2,7 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
 <article>
-    <h1>Newsest posts</h1>
+    <h1>Newest posts</h1>
     <p>Here you can read the newest posts.</p>
 </article>
 

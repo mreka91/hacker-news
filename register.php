@@ -3,6 +3,14 @@
 
 <article>
     <h1>Create an account</h1>
+    <?php if (isset($_SESSION['errors'])) : ?>
+        <div class="alert alert-danger">
+            <?php foreach ($_SESSION['errors'] as $error) : ?>
+                <p><?= $error ?></p>
+            <?php endforeach; ?>
+            <?php unset($_SESSION['errors']); ?>
+        </div>
+    <?php endif; ?>
 
     <form action="app/users/register.php" method="post">
 
