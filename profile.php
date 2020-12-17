@@ -4,7 +4,6 @@
     <h1><?php echo $config['title']; ?></h1>
 
     <?php if (isset($_SESSION['user'])) : ?>
-
         <p>Welcome <?= $_SESSION['user']['name'] ?>!</p>
         <p>Your bio: <br><?= $_SESSION['user']['bio'] ?></p>
         <p>Your email address: <br> <?= $_SESSION['user']['email'] ?></p>
