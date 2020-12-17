@@ -16,3 +16,11 @@ if (!function_exists('errorMessage')) {
         $_SESSION['errors'][] = "${message}";
     }
 }
+
+if (!function_exists('successMessage')) {
+
+    function successMessage(string $message): void
+    {
+        $_SESSION['success'][] = "${message}";
+    }
+}

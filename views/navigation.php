@@ -20,9 +20,11 @@
             </li><!-- /nav-item -->
         <?php endif; ?>
 
-        <li class="nav-item">
-            <a class="nav-link" href="/register.php">Register</a>
-        </li><!-- /nav-item -->
+        <?php if (!isset($_SESSION['user'])) : ?>
+            <li class="nav-item">
+                <a class="nav-link" href="/register.php">Register</a>
+            </li><!-- /nav-item -->
+        <?php endif; ?>
 
         <?php if (isset($_SESSION['user'])) : ?>
             <li class="nav-item">
@@ -32,7 +34,7 @@
 
         <?php if (isset($_SESSION['user'])) : ?>
             <li class="nav-item">
-                <a class="nav-link" href="./app/users/update.php">Edit profile</a>
+                <a class="nav-link" href="profile.php">Profile</a>
             </li><!-- /nav-item -->
         <?php endif; ?>
     </ul><!-- /navbar-nav -->

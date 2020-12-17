@@ -10,13 +10,13 @@ This is our first christmas coding assignment at Yrgo. Our job is to create a Ha
 
 ## User stories
 
-- [ ] As a user I should be able to create an account.
+- [x] As a user I should be able to create an account.
 
-- [ ] As a user I should be able to login.
+- [x] As a user I should be able to login.
 
-- [ ] As a user I should be able to logout.
+- [x] As a user I should be able to logout.
 
-- [ ] As a user I should be able to edit my account email, password and biography.
+- [x] As a user I should be able to edit my account email, password and biography.
 
 - [ ] As a user I should be able to upload a profile avatar image.
 
