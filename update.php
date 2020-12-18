@@ -37,6 +37,7 @@ if (!isset($_SESSION['user'])) {
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
 
+
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

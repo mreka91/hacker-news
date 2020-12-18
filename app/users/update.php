@@ -25,11 +25,7 @@ if (isset($_POST['bio'], $_POST['email'], $_POST['password'])) {
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-    //show a success message and redirect back to the profile page
-    if ($user) {
-        successMessage("Profile successfully updated!");
-        redirect('../../profile.php');
-    }
+
 
     // get the user info and save it to Session
     $statementInfo = $database->prepare('SELECT bio, email, password FROM users WHERE id = :id');
@@ -41,5 +37,11 @@ if (isset($_POST['bio'], $_POST['email'], $_POST['password'])) {
     $_SESSION['user']['bio'] = $userInfo['bio'];
     $_SESSION['user']['email'] = $userInfo['email'];
     $_SESSION['user']['password'] = $userInfo['password'];
+
+    //show a success message and redirect back to the profile page
+    if ($userInfo) {
+        successMessage("Profile successfully updated!");
+        redirect('../../update.php');
+    }
 }
-redirect('/');
+//redirect('/');
