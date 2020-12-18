@@ -18,7 +18,7 @@
 
         <?php if (isset($_SESSION['user'])) : ?>
             <li class="nav-item">
-                <a class="nav-link" href="/store.php">Create post</a>
+                <a class="nav-link" href="/post.php">Create post</a>
             </li><!-- /nav-item -->
         <?php endif; ?>
 

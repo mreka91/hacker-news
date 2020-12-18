@@ -36,4 +36,4 @@ if (isset($_POST['email'], $_POST['password'])) {
         errorMessage("Password or email does not match. Have you created an account, yet?");
     }
 }
-redirect('/');
+//redirect('/');

@@ -36,7 +36,31 @@ if (!isset($_SESSION['user'])) {
 
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
+</article>
+<article>
 
+</article>
+<h2>Upload your profile picture</h2>
+<?php if (isset($_SESSION['errors'])) : ?>
+    <div class="alert alert-danger">
+        <?php foreach ($_SESSION['errors'] as $error) : ?>
+            <p><?= $error ?></p>
+        <?php endforeach; ?>
+        <?php unset($_SESSION['errors']); ?>
+    </div>
+<?php endif; ?>
+
+<form action="app/users/uploadpic.php" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="avatar">Upload your PNG avatar</label>
+        <input type="file" name="avatar" id="avatar" accept=".png" required>
+        <small class="form-text text-muted">Please provide a png image.</small>
+    </div>
+    <img src="<?= $_SESSION['user']['avatar'] ?>">
+
+
+    <button class="btn btn-primary" type="submit">Upload</button>
+</form>
 
 </article>
 
