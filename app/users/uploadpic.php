@@ -5,9 +5,7 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 if (isset($_FILES['avatar'])) {
-
     //die(var_dump($_FILES['avatar']));
-
     $avatar = $_FILES['avatar'];
 
     //destination
