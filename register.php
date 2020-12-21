@@ -22,7 +22,7 @@
 
         <div class="form-group">
             <label for="name">Bio</label>
-            <input class="form-control" type="text" name="bio" id="bio" placeholder="I love long walks on the beach..." required>
+            <input class="form-control" type="text" name="bio" id="bio" placeholder="I love long walks on the beach...">
             <small class="form-text text-muted">Please provide a short biography.</small>
         </div><!-- /form-group -->
 

@@ -9,7 +9,7 @@ if (isset($_FILES['avatar'])) {
     $avatar = $_FILES['avatar'];
 
     //destination
-    $destination = __DIR__ . '/../../assets/images/profile/' . date('ymd') . '-' . $avatar['name'];
+    $destination = __DIR__ . '/../../assets/images/profile/' . $avatar['name'];
 
     $id = $_SESSION['user']['id'];
 

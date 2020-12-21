@@ -17,6 +17,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
         <p><?= $post['description'] ?></p>
         <p>Posted at <?= $post['created_at'] ?></p>
         <p>By <?= $post['name'] ?></p>
+        <a href="">Comments</a>
     <?php endforeach; ?>
 
 </article>

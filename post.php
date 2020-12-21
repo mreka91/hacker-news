@@ -3,12 +3,12 @@
 
 <article>
     <h1>Create a post</h1>
-    <?php if (isset($_SESSION['errors'])) : ?>
-        <div class="alert alert-danger">
-            <?php foreach ($_SESSION['errors'] as $error) : ?>
-                <p><?= $error ?></p>
+    <?php if (isset($_SESSION['success'])) : ?>
+        <div class="alert alert-success">
+            <?php foreach ($_SESSION['success'] as $succ) : ?>
+                <p><?= $succ ?></p>
             <?php endforeach; ?>
-            <?php unset($_SESSION['errors']); ?>
+            <?php unset($_SESSION['success']); ?>
         </div>
     <?php endif; ?>
 

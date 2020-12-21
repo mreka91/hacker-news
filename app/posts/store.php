@@ -9,7 +9,7 @@ require __DIR__ . '/../autoload.php';
 if (isset($_POST['title'], $_POST['link'], $_POST['description'])) {
     $title = filter_var($_POST['title'], FILTER_SANITIZE_STRING);
     $post_link = filter_var($_POST['link'], FILTER_SANITIZE_STRING);
-    $description = filter_var($_POST['description'], FILTER_SANITIZE_EMAIL);
+    $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
 
     $id = $_SESSION['user']['id'];
 
@@ -24,10 +24,20 @@ if (isset($_POST['title'], $_POST['link'], $_POST['description'])) {
     $statement->execute();
 
 
+    $statement = $database->prepare('SELECT * FROM posts WHERE user_id = :id');
+    $statement->bindParam(':id', $id, PDO::PARAM_INT);
+    $statement->execute();
 
 
+    $post = $statement->fetch(PDO::FETCH_ASSOC);
 
-    redirect('/index.php');
+    //show a success message
+    if ($post) {
+        successMessage("Your post is uploaded!");
+        redirect('../../post.php');
+    }
+
+    //redirect('/index.php');
 }
 
 
