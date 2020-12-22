@@ -20,7 +20,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 <?php endif; ?>
 <?php foreach ($posts as $post) : ?>
     <article>
-
+        <!-- form to UPDATE a post -->
         <form action="app/posts/update.php" method="post">
             <!-- get the posts id -->
             <div class="form-group">
@@ -47,9 +47,14 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
             <button type="submit" class="btn btn-primary">Update post</button>
         </form>
-        <!--         <form action="app/posts/delete" method="post">
+
+        <!-- to DELETE a post -->
+        <form action="app/posts/delete.php" method="post">
+            <div class="form-group">
+                <input type=hidden class="form-control" type="text" name="id" id="id" value="<?= $post['id'] ?>" required>
+            </div><!-- /form-group -->
             <button type="submit" class="btn btn-danger">DELETE POST</button>
-        </form> -->
+        </form>
 
     </article>
 

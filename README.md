@@ -24,7 +24,7 @@ This is our first christmas coding assignment at Yrgo. Our job is to create a Ha
 
 - [x] As a user I should be able to edit my posts.
 
-- [ ] As a user I should be able to delete my posts.
+- [x] As a user I should be able to delete my posts.
 
 - [ ] As a user I'm able to view most upvoted posts.
 
