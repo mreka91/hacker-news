@@ -36,7 +36,7 @@ This is our first christmas coding assignment at Yrgo. Our job is to create a Ha
 
 - [x] As a user I'm able to comment on a post.
 
-- [ ] As a user I'm able to edit my comments.
+- [x] As a user I'm able to edit my comments.
 
 - [x] As a user I'm able to delete my comments.
 

@@ -49,6 +49,12 @@ body {
   }
 }
 
+/*POSTS*/
+
+.posts {
+  padding-bottom: 50px;
+}
+
 /*COMMENTS*/
 .delete-com {
   padding-bottom: 20px;

@@ -12,7 +12,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
     <p> Read what's new on Hacker News!</p>
 
     <?php foreach ($posts as $post) : ?>
-        <article>
+        <article class="posts">
             <h2><?= $post['title'] ?></h2>
             <p> <a href="<?= $post['post_link'] ?>"><?= $post['post_link'] ?> </a></p>
             <p><?= $post['description'] ?></p>
