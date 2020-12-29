@@ -1,0 +1,35 @@
+/*PROFILE*/
+.profile img {
+  width: 100px;
+  border-radius: 50%;
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+
+@media screen and (min-width: 700px) {
+}
+
+.buttons {
+  padding-top: 50px;
+}
+
+.buttons a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+/*UPDATE PROFILE*/
+.img-form {
+  margin-top: 65px;
+}
+
+@media screen and (min-width: 700px) {
+  .img-form {
+    margin-top: 100px;
+  }
+}
+
+/*COMMENTS*/
+.delete-com {
+  padding-bottom: 20px;
+}

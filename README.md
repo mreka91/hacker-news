@@ -34,11 +34,11 @@ This is our first christmas coding assignment at Yrgo. Our job is to create a Ha
 
 - [ ] As a user I should be able to remove upvote from posts.
 
-- [ ] As a user I'm able to comment on a post.
+- [x] As a user I'm able to comment on a post.
 
 - [ ] As a user I'm able to edit my comments.
 
-- [ ] As a user I'm able to delete my comments.
+- [x] As a user I'm able to delete my comments.
 
 ## Installation
 

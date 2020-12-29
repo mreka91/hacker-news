@@ -39,8 +39,8 @@ if (!isset($_SESSION['user'])) {
 </article>
 
 
-<article>
-    <h2>Upload your profile picture</h2>
+<article class="img-form">
+    <h2>Upload a new profile picture</h2>
     <?php if (isset($_SESSION['errors'])) : ?>
         <div class="alert alert-danger">
             <?php foreach ($_SESSION['errors'] as $error) : ?>
@@ -52,12 +52,10 @@ if (!isset($_SESSION['user'])) {
 
     <form action="app/users/uploadpic.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
-            <label for="avatar">Upload your PNG avatar</label>
-            <input type="file" name="avatar" id="avatar" accept=".png" required>
-            <small class="form-text text-muted">Please provide a png image.</small>
+            <label for="avatar">Upload your avatar in PNG format.</label>
+            <input type="file" class="form-control-file" name="avatar" id="avatar" accept=".png" required>
+            <small class="form-text text-muted">We only accept PNG format at this time.</small>
         </div>
-
-        <!-- <img src="/assets/images/profile/<?= date('ymd') . '-' . $_SESSION['user']['avatar']; ?>" style="width:200px;"> -->
 
         <button class="btn btn-primary" type="submit">Upload</button>
     </form>
