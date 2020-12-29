@@ -1,3 +1,23 @@
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"),
+    url("/assets/fonts/Roboto-Regular.woff2") format("woff2"),
+    url("/assets/fonts/Roboto-Regular.woff") format("woff");
+}
+
+:root {
+  --bg-color: ;
+  --accent-color: ;
+  --font-color: ;
+  --font-family: "Roboto";
+}
+
+/*GENERAL*/
+
+body {
+  font-family: var(--font-family);
+}
+
 /*PROFILE*/
 .profile img {
   width: 100px;
