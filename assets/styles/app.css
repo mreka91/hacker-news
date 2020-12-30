@@ -6,8 +6,8 @@
 }
 
 :root {
-  --bg-color: ;
-  --accent-color: ;
+  --bg-color: rgb(218, 212, 212);
+  --accent-color: rgb(228, 141, 10);
   --font-color: ;
   --font-family: "Roboto";
 }
@@ -16,6 +16,21 @@
 
 body {
   font-family: var(--font-family);
+}
+
+article {
+  background-color: var(--bg-color);
+  padding: 15px;
+}
+
+.link {
+  color: var(--accent-color);
+  word-wrap: break-word;
+}
+
+.comment a {
+  color: black;
+  font-weight: bold;
 }
 
 /*PROFILE*/
@@ -51,8 +66,16 @@ body {
 
 /*POSTS*/
 
-.posts {
-  padding-bottom: 50px;
+.like-btn {
+  border: none;
+  background: transparent;
+}
+.like {
+  width: 25px;
+}
+
+.like-container {
+  padding-top: 2rem;
 }
 
 /*COMMENTS*/

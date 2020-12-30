@@ -6,20 +6,54 @@ $statement->execute();
 
 $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+
+
+//count the likes
+
+$statement = $database->prepare('SELECT COUNT(*) FROM likes WHERE post_id = :id');
+
+if (!$statement) {
+    die(var_dump($database->errorInfo()));
+}
+
+$statement->bindParam(':id', $id, PDO::PARAM_INT);
+$statement->execute();
+
+$likes = $statement->fetch(PDO::FETCH_ASSOC);
+
 ?>
 <article>
     <h1>Newest posts</h1>
     <p> Read what's new on Hacker News!</p>
-
+    <?php if (isset($_SESSION['success'])) : ?>
+        <div class="alert alert-success">
+            <?php foreach ($_SESSION['success'] as $succ) : ?>
+                <p><?= $succ ?></p>
+            <?php endforeach; ?>
+            <?php unset($_SESSION['success']); ?>
+        </div>
+    <?php endif; ?>
     <?php foreach ($posts as $post) : ?>
-        <article class="posts">
+        <div class="posts container py-5">
             <h2><?= $post['title'] ?></h2>
-            <p> <a href="<?= $post['post_link'] ?>"><?= $post['post_link'] ?> </a></p>
+            <a class="link" href="<?= $post['post_link'] ?>"><?= $post['post_link'] ?> </a>
             <p><?= $post['description'] ?></p>
+            <p class="comment"><a href="comments.php?id=<?= $post['id']; ?>">Comments</a></p>
             <small>Posted at <?= $post['created_at'] ?></small>
             <small>By <?= $post['name'] ?></small>
-            <a href="comments.php?id=<?= $post['id']; ?>">Comments</a>
-        </article>
+
+            <!-- like btn -->
+            <div class="like-container">
+                <form action="app/posts/likes.php" method="post">
+                    <input type="hidden" name="id" value="<?= $post['id']; ?>">
+                    <button type="submit" name="submit" class="like-btn"> <img src="assets/images/buttons/like.svg" alt="like" class="like"> </button>
+                </form>
+
+                <!-- number of likes -->
+                <p> <?= json_encode($likes);  ?> </p>
+            </div>
+        </div><!-- /posts-->
+        <hr>
     <?php endforeach; ?>
 </article>
 
