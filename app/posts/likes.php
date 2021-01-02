@@ -8,7 +8,6 @@ require __DIR__ . '/../autoload.php';
 
 
 if (isset($_POST['id'])) {
-
     $user_id = $_SESSION['user']['id'];
     $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
 

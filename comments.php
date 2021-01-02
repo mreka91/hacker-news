@@ -1,7 +1,6 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
 <?php
-
 // show the post the user clicked on
 $id = $_GET['id'];
 $statement = $database->prepare('SELECT * FROM posts  WHERE id = :id');
@@ -43,13 +42,11 @@ $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
     <?php endif; ?>
 
     <?php if (!isset($_SESSION['user'])) : ?>
-
         <h6>You have to be logged in to be able to comment</h6>
         <hr>
     <?php endif; ?>
     <!-- ADD COMMENTS -->
     <?php if (isset($_SESSION['user'])) : ?>
-
         <form action="app/posts/addcomment.php?id=<?= $post['id']; ?>" method="post">
             <div class="form-group">
                 <label for="name">Name</label>
