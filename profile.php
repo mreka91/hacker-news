@@ -4,7 +4,6 @@
     <h1>Profile Page</h1>
 
     <?php if (isset($_SESSION['user'])) : ?>
-
         <div class="profile">
             <?php if (isset($_SESSION['user']['avatar'])) : ?>
                 <img src="/assets/images/profile/<?= $_SESSION['user']['avatar']; ?>">

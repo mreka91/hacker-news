@@ -70,8 +70,8 @@ $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
         <p><?= $comment['content']; ?></p>
 
         <!-- EDIT COMMENT -->
-        <div class="edit-com">
-            <?php if ($_SESSION['user']['id'] === $comment['user_id']) : ?>
+        <?php if ($_SESSION['user']['id'] === $comment['user_id']) : ?>
+            <div class="edit-com">
                 <form action="app/posts/editcomment.php?id=<?= $post['id']; ?>" method="post">
                     <input type="hidden" name="id" value="<?= $comment['id'] ?>">
                     <div class="form-group">
@@ -80,15 +80,15 @@ $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
                     </div><!-- /form-group -->
                     <button type="submit" class="btn  btn-sm btn-info">Edit</button>
                 </form>
-        </div>
-        <!-- DELETE COMMENT -->
-        <div class="delete-com">
-            <form action="app/posts/deletecomment.php?id=<?= $post['id']; ?>" method="post">
-                <input type="hidden" name="id" value="<?= $comment['id'] ?>">
-                <button type="submit" class="btn  btn-sm btn-danger">Delete</button>
-            </form>
+            </div>
+            <!-- DELETE COMMENT -->
+            <div class="delete-com">
+                <form action="app/posts/deletecomment.php?id=<?= $post['id']; ?>" method="post">
+                    <input type="hidden" name="id" value="<?= $comment['id'] ?>">
+                    <button type="submit" class="btn  btn-sm btn-danger">Delete</button>
+                </form>
+            </div>
         <?php endif; ?>
-        </div>
     <?php endforeach; ?>
 
 </article>
