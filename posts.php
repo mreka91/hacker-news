@@ -9,22 +9,20 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
 //count the likes
-
-$statement = $database->prepare('SELECT COUNT(*) FROM likes WHERE post_id = :id');
-
-if (!$statement) {
-    die(var_dump($database->errorInfo()));
-}
+$id = $_POST['id'];
+$statement = $database->prepare('SELECT COUNT(*) AS LIKES FROM likes WHERE post_id = :id');
 
 $statement->bindParam(':id', $id, PDO::PARAM_INT);
 $statement->execute();
 
 $likes = $statement->fetch(PDO::FETCH_ASSOC);
 
+$likesEnc = json_encode($likes);
+
 ?>
 <article>
     <h1>Newest posts</h1>
-    <p> Read what's new on Hacker News!</p>
+    <p> Read what's new on News Hacker!</p>
     <?php if (isset($_SESSION['success'])) : ?>
         <div class="alert alert-success">
             <?php foreach ($_SESSION['success'] as $succ) : ?>
@@ -49,8 +47,13 @@ $likes = $statement->fetch(PDO::FETCH_ASSOC);
                     <button type="submit" name="submit" class="like-btn"> <img src="assets/images/buttons/like.svg" alt="like" class="like"> </button>
                 </form>
 
+                <form action="app/posts/deletelikes.php" method="post">
+                    <input type="hidden" name="id" value="<?= $post['id']; ?>">
+                    <button type="submit" name="submit" class="like-btn"> <img src="assets/images/buttons/dislike.svg" alt="dislike" class="like"> </button>
+                </form>
+
                 <!-- number of likes -->
-                <p> <?= json_encode($likes);  ?> </p>
+                <p> <?= $likesEnc;  ?> </p>
             </div>
         </div><!-- /posts-->
         <hr>

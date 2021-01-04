@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/index.php">Hacker img here</a>
+<nav class="navbar navbar-expand-lg navbar-light navigation">
+    <a class="navbar-brand" href="/index.php"><img src="assets/images/logo.png" alt="News Hacker Logo"></a>
 
     <ul class="navbar-nav">
         <li class="nav-item">

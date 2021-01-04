@@ -9,7 +9,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <article>
     <h1>Newest posts</h1>
-    <p> Read what's new on Hacker News!</p>
+    <p> Read what's new on News Hacker !</p>
 
     <?php foreach ($posts as $post) : ?>
         <div class="posts container py-5">
