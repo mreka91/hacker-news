@@ -6,7 +6,7 @@ Hacker News is a social news website focusing on computer science and entreprene
 
 ## Assignment
 
-This is our first christmas coding assignment at Yrgo. Our job is to create a Hacker News clone using only HTML, CSS, JavaScript, SQL and PHP.
+This is our first Christmas coding assignment at Yrgo. Our job is to create a Hacker News clone using only HTML, CSS, JavaScript, SQL and PHP.
 
 ## User stories
 
