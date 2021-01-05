@@ -30,9 +30,9 @@ This is our first christmas coding assignment at Yrgo. Our job is to create a Ha
 
 - [x] As a user I'm able to view new posts.
 
-- [ ] As a user I should be able to upvote posts.
+- [x] As a user I should be able to upvote posts.
 
-- [ ] As a user I should be able to remove upvote from posts.
+- [x] As a user I should be able to remove upvote from posts.
 
 - [x] As a user I'm able to comment on a post.
 
