@@ -56,8 +56,9 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <input type="hidden" name="id" value="<?= $post['id']; ?>">
                     <button type="submit" name="submit" class="like-btn"> <img src="assets/images/buttons/dislike.svg" alt="dislike" class="like"> </button>
                 </form>
+                <!-- number of likes -->
                 <?php foreach ($likes as $like) : ?>
-                    <!-- number of likes -->
+
                     <p> <?= $like['votes']; ?> </p>
                 <?php endforeach; ?>
             </div>
