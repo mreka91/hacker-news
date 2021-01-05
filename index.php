@@ -58,7 +58,6 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                 </form>
                 <!-- number of likes -->
                 <?php foreach ($likes as $like) : ?>
-
                     <p> <?= $like['votes']; ?> Upvotes</p>
                 <?php endforeach; ?>
             </div>
