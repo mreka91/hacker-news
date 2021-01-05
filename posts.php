@@ -8,16 +8,6 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-//count the likes
-$id = $_POST['id'];
-$statement = $database->prepare('SELECT COUNT(*) AS LIKES FROM likes WHERE post_id = :id');
-
-$statement->bindParam(':id', $id, PDO::PARAM_INT);
-$statement->execute();
-
-$likes = $statement->fetch(PDO::FETCH_ASSOC);
-
-$likesEnc = json_encode($likes);
 
 ?>
 <article>
@@ -40,20 +30,36 @@ $likesEnc = json_encode($likes);
             <small>Posted at <?= $post['created_at'] ?></small>
             <small>By <?= $post['name'] ?></small>
 
-            <!-- like btn -->
+            <?php
+            //count the likes
+
+            $id = $post['id'];
+
+            $statement = $database->prepare('SELECT posts.*, COUNT(likes.post_id) AS votes FROM likes INNER JOIN posts ON posts.id = likes.post_id WHERE posts.id = :id');
+
+            $statement->bindParam(':id', $id, PDO::PARAM_INT);
+            $statement->execute();
+
+            $likes = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            //$likesEnc = json_encode($likes);
+
+            ?>
             <div class="like-container">
+                <!-- like btn -->
                 <form action="app/posts/likes.php" method="post">
                     <input type="hidden" name="id" value="<?= $post['id']; ?>">
                     <button type="submit" name="submit" class="like-btn"> <img src="assets/images/buttons/like.svg" alt="like" class="like"> </button>
                 </form>
-
+                <!-- unlike btn -->
                 <form action="app/posts/deletelikes.php" method="post">
                     <input type="hidden" name="id" value="<?= $post['id']; ?>">
                     <button type="submit" name="submit" class="like-btn"> <img src="assets/images/buttons/dislike.svg" alt="dislike" class="like"> </button>
                 </form>
-
-                <!-- number of likes -->
-                <p> <?= $likesEnc;  ?> </p>
+                <?php foreach ($likes as $like) : ?>
+                    <!-- number of likes -->
+                    <p> <?= $like['votes']; ?> </p>
+                <?php endforeach; ?>
             </div>
         </div><!-- /posts-->
         <hr>
