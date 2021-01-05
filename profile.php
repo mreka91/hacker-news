@@ -19,8 +19,8 @@
             <a href="update.php" class="btn btn-lg btn-outline-primary" role="button">UPDATE PROFILE</a>
         </div>
         <div class="buttons">
-            <h4>You can edit your posts by clicking the UPDATE POSTS button below.</h4>
-            <a href="updatepost.php" class="btn btn-lg btn-outline-primary" role="button">EDIT YOUR POSTS</a>
+            <h4>You can edit your posts by clicking the EDIT POSTS button below.</h4>
+            <a href="updatepost.php" class="btn btn-lg btn-outline-primary" role="button">EDIT POSTS</a>
         </div>
         <!-- to delete a user profile -->
         <div class="buttons">

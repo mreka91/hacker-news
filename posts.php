@@ -24,7 +24,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
     <?php foreach ($posts as $post) : ?>
         <div class="posts container py-5">
             <h2><?= $post['title'] ?></h2>
-            <a class="link" href="<?= $post['post_link'] ?>"><?= $post['post_link'] ?> </a>
+            <a class="link" target="_blank" rel="noopener noreferrer" href="<?= $post['post_link'] ?>"><?= $post['post_link'] ?> </a>
             <p><?= $post['description'] ?></p>
             <p class="comment"><a href="comments.php?id=<?= $post['id']; ?>">Comments</a></p>
             <small>Posted at <?= $post['created_at'] ?></small>
@@ -58,7 +58,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                 </form>
                 <?php foreach ($likes as $like) : ?>
                     <!-- number of likes -->
-                    <p> <?= $like['votes']; ?> </p>
+                    <p> <?= $like['votes']; ?> Upvotes</p>
                 <?php endforeach; ?>
             </div>
         </div><!-- /posts-->

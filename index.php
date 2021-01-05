@@ -11,8 +11,8 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <article>
-    <h1>Newest posts</h1>
-    <p> Read what's new on News Hacker!</p>
+    <h1>The hottest topics</h1>
+    <p> Read what's everyone's been talking about on News Hacker!</p>
     <?php if (isset($_SESSION['success'])) : ?>
         <div class="alert alert-success">
             <?php foreach ($_SESSION['success'] as $succ) : ?>
@@ -24,7 +24,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
     <?php foreach ($posts as $post) : ?>
         <div class="posts container py-5">
             <h2><?= $post['title'] ?></h2>
-            <a class="link" href="<?= $post['post_link'] ?>"><?= $post['post_link'] ?> </a>
+            <a class="link" target="_blank" rel="noopener noreferrer" href="<?= $post['post_link'] ?>"><?= $post['post_link'] ?> </a>
             <p><?= $post['description'] ?></p>
             <p class="comment"><a href="comments.php?id=<?= $post['id']; ?>">Comments</a></p>
             <small>Posted at <?= $post['created_at'] ?></small>
@@ -35,7 +35,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
             $id = $post['id'];
 
-            $statement = $database->prepare('SELECT posts.*, COUNT(likes.post_id) AS votes FROM likes INNER JOIN posts ON posts.id = likes.post_id WHERE posts.id = :id');
+            $statement = $database->prepare('SELECT posts.*, COUNT(likes.post_id) AS votes FROM likes INNER JOIN posts ON posts.id = likes.post_id WHERE posts.id = :id GROUP BY posts.id ORDER BY COUNT(posts.id) DESC');
 
             $statement->bindParam(':id', $id, PDO::PARAM_INT);
             $statement->execute();
@@ -59,7 +59,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <!-- number of likes -->
                 <?php foreach ($likes as $like) : ?>
 
-                    <p> <?= $like['votes']; ?> </p>
+                    <p> <?= $like['votes']; ?> Upvotes</p>
                 <?php endforeach; ?>
             </div>
         </div><!-- /posts-->
