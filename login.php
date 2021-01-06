@@ -2,7 +2,7 @@
 
 
 
-<article>
+<article class="login">
     <h1>Login</h1>
     <?php if (isset($_SESSION['errors'])) : ?>
         <div class="alert alert-danger">

@@ -24,7 +24,7 @@ if (isset($_POST['id'])) {
 
     //show a success message and redirect back to the page
     if ($statement) {
-        successMessage("Post liked!");
+        successMessage("Post upvoted!");
         redirect('../../posts.php');
     }
 }

@@ -55,6 +55,12 @@ article {
   font-weight: bold;
 }
 
+/*LOGIN*/
+
+.login {
+  margin-bottom: 145px;
+}
+
 /*PROFILE*/
 .profile img {
   width: 100px;
@@ -106,6 +112,7 @@ article {
 }
 
 /*FOOTER*/
+
 .footer-icons ul li {
   display: inline-block;
 }
