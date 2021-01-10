@@ -175,6 +175,7 @@ article {
 .footer-area-bottom {
   background: var(--framing-color) none repeat scroll 0 0;
   padding: 15px 0;
+  margin-top: 350px;
 }
 
 .copyright-text a:hover {

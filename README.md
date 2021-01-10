@@ -40,6 +40,10 @@ This is our first Christmas coding assignment at Yrgo. Our job is to create a Ha
 
 - [x] As a user I'm able to delete my comments.
 
+## Extra
+
+- [x] As a user I'm able to delete my account along with all posts, upvotes and comments.
+
 ## Installation
 
 Clone the repository to your computer:

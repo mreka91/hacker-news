@@ -26,7 +26,7 @@
         <div class="buttons">
             <form action="app/users/delete.php" method="post">
                 <h4>You can DELETE your profile by clicking the button below.</h4>
-                <button type="submit" class="btn btn-lg btn-outline-danger">DELETE PROFILE</button>
+                <input type="submit" value="Delete" class="btn btn-lg btn-outline-danger" />
             </form>
         </div>
     <?php endif; ?>
