@@ -62,11 +62,27 @@ article {
 }
 
 /*PROFILE*/
-.profile img {
+
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-pic img {
   width: 100px;
   border-radius: 50%;
   margin-top: 50px;
   margin-bottom: 25px;
+}
+
+@media screen and (min-width: 700px) {
+  .profile-pic img {
+    width: 200px;
+  }
+}
+
+.bio {
+  max-width: 600px;
 }
 
 .buttons {
@@ -82,6 +98,7 @@ article {
   border: 2px dotted red;
   padding: 15px;
   margin-top: 200px;
+  max-width: 600px;
 }
 
 /*UPDATE PROFILE*/
@@ -101,6 +118,7 @@ article {
   border: none;
   background: transparent;
 }
+
 .like {
   width: 25px;
 }
@@ -140,6 +158,12 @@ article {
   text-align: center;
   width: 40px;
   border-radius: 50%;
+}
+
+.footer-icons ul li a:hover {
+  background-color: var(--accent-color);
+  color: white;
+  border: 1px solid white;
 }
 
 .policy {
