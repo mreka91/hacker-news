@@ -12,20 +12,25 @@
 
         <h2><?= $_SESSION['user']['name'] ?></h2>
 
-        <p>Short bio: <br> <?= $_SESSION['user']['bio'] ?></p>
-        <p>Your registered email address: <br> <?= $_SESSION['user']['email'] ?></p>
+        <h5>Bio: </h5>
+        <p><?= $_SESSION['user']['bio'] ?></p>
+        <h5>Your email address: </h5>
+        <p><?= $_SESSION['user']['email'] ?></p>
+
+        <!-- edit all user info -->
         <div class="buttons">
-            <h4>You can edit your profile by clicking the UPDATE PROFILE button below.</h4>
+            <h4>Edit your profile by clicking the button below.</h4>
             <a href="update.php" class="btn btn-lg btn-outline-primary" role="button">UPDATE PROFILE</a>
         </div>
         <div class="buttons">
-            <h4>You can edit your posts by clicking the EDIT POSTS button below.</h4>
+            <h4>Edit your posts by clicking the button below.</h4>
             <a href="updatepost.php" class="btn btn-lg btn-outline-primary" role="button">EDIT POSTS</a>
         </div>
         <!-- to delete a user profile -->
-        <div class="buttons">
+        <div class="buttons danger-zone">
+            <h4>You will permanently DELETE your profile, every post comment and like by clicking the button below.</h4>
             <form action="app/users/delete.php" method="post">
-                <h4>You can DELETE your profile by clicking the button below.</h4>
+
                 <input type="submit" value="Delete" class="btn btn-lg btn-outline-danger" />
             </form>
         </div>

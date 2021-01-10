@@ -53,7 +53,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
             <div class="form-group">
                 <input type=hidden class="form-control" type="text" name="id" id="id" value="<?= $post['id'] ?>" required>
             </div><!-- /form-group -->
-            <button type="submit" class="btn btn-danger">DELETE POST</button>
+            <button type="submit" class="btn btn-danger delete-post">DELETE POST</button>
         </form>
 
     </article>

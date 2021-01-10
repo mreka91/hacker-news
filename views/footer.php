@@ -1,6 +1,6 @@
 </div><!-- /container -->
 <footer>
-    <div class="footer-area-bottom">
+    <div class="footer-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -27,7 +27,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="credits">
+                    <div class="policy">
                         <a href="#">Privacy Policy</a> | <a href="#">Terms & Condition</a>
                     </div>
                     <div class="copyright text-center">
