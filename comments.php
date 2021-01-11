@@ -73,14 +73,16 @@ $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
             <small><?= $comment['created_at']; ?></small>
             <p><?= $comment['content']; ?></p>
 
-            <div class="edit-comment">
+            <div class="edit-comments">
                 <!-- EDIT COMMENT -->
+
                 <?php if ($_SESSION['user']['id'] === $comment['user_id']) : ?>
+
                     <div class="edit-com">
                         <form action="app/posts/editcomment.php?id=<?= $post['id']; ?>" method="post">
                             <input type="hidden" name="id" value="<?= $comment['id'] ?>">
                             <div class="form-group">
-                                <label for="content">Edit comment</label>
+                                <label for="content">Edit comment &#8595;</label>
                                 <input name="content" id="content" class="form-control" value="<?= $comment['content'] ?>" required></input>
                             </div><!-- /form-group -->
                             <button type="submit" class="btn  btn-sm btn-info">Edit</button>

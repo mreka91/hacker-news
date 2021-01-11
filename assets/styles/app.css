@@ -149,6 +149,14 @@ svg {
 .comments-displayed {
   padding-top: 55px;
 }
+
+/* .edit-com,
+.delete-com {
+  visibility: hidden;
+} */
+.edit-com {
+  padding-bottom: 10px;
+}
 .delete-com {
   padding-bottom: 20px;
 }
