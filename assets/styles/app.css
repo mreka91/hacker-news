@@ -60,6 +60,27 @@ article {
   padding-top: 5px;
 }
 
+svg {
+  width: 25px;
+}
+
+.like:hover {
+  fill: rgb(18, 230, 18);
+}
+
+.unlike:hover {
+  fill: red;
+}
+
+.like-btn {
+  border: none;
+  background: transparent;
+}
+
+.like-container {
+  padding-top: 2rem;
+}
+
 /*LOGIN*/
 
 .login {
@@ -118,19 +139,6 @@ article {
 }
 
 /*POSTS*/
-
-.like-btn {
-  border: none;
-  background: transparent;
-}
-
-.like {
-  width: 25px;
-}
-
-.like-container {
-  padding-top: 2rem;
-}
 
 .comment {
   padding-top: 15px;
