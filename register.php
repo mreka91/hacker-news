@@ -3,6 +3,7 @@
 
 <article>
     <h1>Create an account</h1>
+    <!-- display an error message if pw and email not match or if email is in use already -->
     <?php if (isset($_SESSION['errors'])) : ?>
         <div class="alert alert-danger">
             <?php foreach ($_SESSION['errors'] as $error) : ?>

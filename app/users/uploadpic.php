@@ -15,8 +15,8 @@ if (isset($_FILES['avatar'])) {
 
 
 
-    if ($avatar['type'] !== 'image/png') {
-        errorMessage("The uploaded file is not the supported png format.");
+    if (!in_array($avatar['type'], ['image/jpeg', 'image/png'])) {
+        errorMessage("The uploaded file is not the supported png or jpeg format.");
     } else {
         move_uploaded_file($avatar['tmp_name'], $destination);
 

@@ -6,6 +6,7 @@ if (!isset($_SESSION['user'])) {
 
 <article>
     <h1>Update your Profile</h1>
+    <!-- show success message if profile was updated -->
     <?php if (isset($_SESSION['success'])) : ?>
         <div class="alert alert-success">
             <?php foreach ($_SESSION['success'] as $succ) : ?>
@@ -14,8 +15,8 @@ if (!isset($_SESSION['user'])) {
             <?php unset($_SESSION['success']); ?>
         </div>
     <?php endif; ?>
-    <form action="app/users/update.php" method="post">
 
+    <form action="app/users/update.php" method="post">
         <div class="form-group">
             <label for="name">Bio</label>
             <input class="form-control" type="text" name="bio" id="bio" placeholder="I love long walks on the beach..." required>
@@ -38,7 +39,7 @@ if (!isset($_SESSION['user'])) {
     </form>
 </article>
 
-
+<!-- upload a profile picture -->
 <article class="img-form">
     <h2>Upload a new profile picture</h2>
     <?php if (isset($_SESSION['errors'])) : ?>
@@ -53,8 +54,8 @@ if (!isset($_SESSION['user'])) {
     <form action="app/users/uploadpic.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="avatar">Upload your avatar in PNG format.</label>
-            <input type="file" class="form-control-file" name="avatar" id="avatar" accept=".png" required>
-            <small class="form-text text-muted">We only accept PNG format at this time.</small>
+            <input type="file" class="form-control-file" name="avatar" id="avatar" accept=".jpg, .jpeg, .png" required>
+            <small class="form-text text-muted">We only accept JPG, JPEG and PNG format.</small>
         </div>
 
         <button class="btn btn-primary" type="submit">Upload</button>

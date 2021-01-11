@@ -25,9 +25,11 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
             <h2><?= $post['title'] ?></h2>
             <a class="link" target="_blank" rel="noopener noreferrer" href="<?= $post['post_link'] ?>"><?= $post['post_link'] ?> </a>
             <p><?= $post['description'] ?></p>
-            <p class="comment"><a href="comments.php?id=<?= $post['id']; ?>">Comments</a></p>
+
             <small>Posted at <?= $post['created_at'] ?></small>
             <small>By <?= $post['name'] ?></small>
+
+            <p class="comment"><a href="comments.php?id=<?= $post['id']; ?>">Comments</a></p>
             <!-- Only show like buttons when user is logged in -->
             <div class="like-container">
                 <?php if (isset($_SESSION['user'])) : ?>
@@ -45,7 +47,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <small>Please login or register to upvote a post.</small>
                 <?php endif; ?>
                 <!-- number of likes -->
-                <p> <?= $post['votes']; ?> Upvotes</p>
+                <p class="upvotes"> <?= $post['votes']; ?> Upvotes</p>
             </div>
         </div><!-- /posts-->
         <hr>

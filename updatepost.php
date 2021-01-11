@@ -10,6 +10,7 @@ $statement->execute();
 $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <h1>You will find all your posts here</h1>
+<!-- show success message if post was updated -->
 <?php if (isset($_SESSION['success'])) : ?>
     <div class="alert alert-success">
         <?php foreach ($_SESSION['success'] as $succ) : ?>

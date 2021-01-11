@@ -32,6 +32,7 @@ $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- COMMENTS -->
 <article>
+    <!-- shows a success message if the comment was posted succesfully -->
     <?php if (isset($_SESSION['success'])) : ?>
         <div class="alert alert-success">
             <?php foreach ($_SESSION['success'] as $succ) : ?>
@@ -40,11 +41,12 @@ $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
             <?php unset($_SESSION['success']); ?>
         </div>
     <?php endif; ?>
-
+    <!-- only logged in users can comment -->
     <?php if (!isset($_SESSION['user'])) : ?>
         <h6>You have to be logged in to be able to comment</h6>
         <hr>
     <?php endif; ?>
+
     <!-- ADD COMMENTS -->
     <?php if (isset($_SESSION['user'])) : ?>
         <form action="app/posts/addcomment.php?id=<?= $post['id']; ?>" method="post">
@@ -63,34 +65,38 @@ $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
     <?php endif; ?>
 
     <!-- DISPLAY COMMENTS -->
-    <h5>Comments</h5>
-    <?php foreach ($comments as $comment) : ?>
-        <small><?= $comment['name']; ?> commented on</small>
-        <small><?= $comment['created_at']; ?></small>
-        <p><?= $comment['content']; ?></p>
+    <div class="comments-displayed">
+        <hr>
+        <h5>Comments</h5>
+        <?php foreach ($comments as $comment) : ?>
+            <small><?= $comment['name']; ?> commented on</small>
+            <small><?= $comment['created_at']; ?></small>
+            <p><?= $comment['content']; ?></p>
 
-        <!-- EDIT COMMENT -->
-        <?php if ($_SESSION['user']['id'] === $comment['user_id']) : ?>
-            <div class="edit-com">
-                <form action="app/posts/editcomment.php?id=<?= $post['id']; ?>" method="post">
-                    <input type="hidden" name="id" value="<?= $comment['id'] ?>">
-                    <div class="form-group">
-                        <label for="content">Edit comment</label>
-                        <input name="content" id="content" class="form-control" value="<?= $comment['content'] ?>" required></input>
-                    </div><!-- /form-group -->
-                    <button type="submit" class="btn  btn-sm btn-info">Edit</button>
-                </form>
+            <div class="edit-comment">
+                <!-- EDIT COMMENT -->
+                <?php if ($_SESSION['user']['id'] === $comment['user_id']) : ?>
+                    <div class="edit-com">
+                        <form action="app/posts/editcomment.php?id=<?= $post['id']; ?>" method="post">
+                            <input type="hidden" name="id" value="<?= $comment['id'] ?>">
+                            <div class="form-group">
+                                <label for="content">Edit comment</label>
+                                <input name="content" id="content" class="form-control" value="<?= $comment['content'] ?>" required></input>
+                            </div><!-- /form-group -->
+                            <button type="submit" class="btn  btn-sm btn-info">Edit</button>
+                        </form>
+                    </div>
+                    <!-- DELETE COMMENT -->
+                    <div class="delete-com">
+                        <form action="app/posts/deletecomment.php?id=<?= $post['id']; ?>" method="post">
+                            <input type="hidden" name="id" value="<?= $comment['id'] ?>">
+                            <button type="submit" class="btn  btn-sm btn-danger">Delete</button>
+                        </form>
+                    </div>
+                <?php endif; ?>
             </div>
-            <!-- DELETE COMMENT -->
-            <div class="delete-com">
-                <form action="app/posts/deletecomment.php?id=<?= $post['id']; ?>" method="post">
-                    <input type="hidden" name="id" value="<?= $comment['id'] ?>">
-                    <button type="submit" class="btn  btn-sm btn-danger">Delete</button>
-                </form>
-            </div>
-        <?php endif; ?>
-    <?php endforeach; ?>
-
+        <?php endforeach; ?>
+    </div>
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

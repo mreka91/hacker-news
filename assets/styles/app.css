@@ -9,7 +9,7 @@
   --bg-color: rgb(218, 212, 212);
   --accent-color: rgb(228, 141, 10);
   --framing-color: #e6e3e3;
-  --font-color: ;
+  --font-color: rgb(0, 0, 0);
   --font-family: "Roboto";
 }
 
@@ -22,6 +22,7 @@ html {
 
 body {
   font-family: var(--font-family);
+  color: var(--font-color);
 }
 
 article {
@@ -53,6 +54,10 @@ article {
 .comment a {
   color: black;
   font-weight: bold;
+}
+
+.upvotes {
+  padding-top: 5px;
 }
 
 /*LOGIN*/
@@ -127,7 +132,15 @@ article {
   padding-top: 2rem;
 }
 
+.comment {
+  padding-top: 15px;
+}
+
 /*COMMENTS*/
+
+.comments-displayed {
+  padding-top: 55px;
+}
 .delete-com {
   padding-bottom: 20px;
 }
