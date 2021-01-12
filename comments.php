@@ -77,7 +77,6 @@ $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <!-- EDIT COMMENT -->
 
                 <?php if ($_SESSION['user']['id'] === $comment['user_id']) : ?>
-
                     <div class="edit-com">
                         <form action="app/posts/editcomment.php?id=<?= $post['id']; ?>" method="post">
                             <input type="hidden" name="id" value="<?= $comment['id'] ?>">
