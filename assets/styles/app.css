@@ -150,10 +150,6 @@ svg {
   padding-top: 55px;
 }
 
-/* .edit-com,
-.delete-com {
-  visibility: hidden;
-} */
 .edit-com {
   padding-bottom: 10px;
 }
@@ -163,7 +159,7 @@ svg {
 
 /*FOOTER*/
 .footer-area {
-  background: var(--framing-color) none repeat scroll 0 0;
+  background: var(--framing-color);
   padding: 15px 0;
   margin-top: 350px;
 }

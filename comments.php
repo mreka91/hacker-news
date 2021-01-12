@@ -73,7 +73,7 @@ $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
             <small><?= $comment['created_at']; ?></small>
             <p><?= $comment['content']; ?></p>
 
-            <div class="edit-comments">
+            <div class="edit-comment">
                 <!-- EDIT COMMENT -->
 
                 <?php if ($_SESSION['user']['id'] === $comment['user_id']) : ?>
