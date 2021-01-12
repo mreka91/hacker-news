@@ -68,6 +68,8 @@ Open it up in your favourite browser
 
 ## Testers:
 
-1. Linn Joseffson
+1. [Linn Joseffson](https://github.com/LinnJosefsson)
+
+2. [Carolina Hagman](https://github.com/carolinahagman)
 
 ## Feedback:
