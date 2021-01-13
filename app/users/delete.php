@@ -24,13 +24,13 @@ $statement = $database->prepare('DELETE FROM comments WHERE user_id = :id');
 $statement->bindParam(':id', $id, PDO::PARAM_STR);
 $statement->execute();
 
-$isDeleted = $statement->fetch(PDO::FETCH_ASSOC);
+/* $isDeleted = $statement->fetch(PDO::FETCH_ASSOC);
 
-/* if ($isDeleted) {
+if ($isDeleted) {
     successMessage("Your account has been successfully deleted.");
     redirect('/login.php');
 } */
 
 
 unset($_SESSION['user']);
-redirect('/');
+redirect('../../index.php');

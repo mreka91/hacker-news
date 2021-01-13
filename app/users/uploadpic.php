@@ -44,5 +44,3 @@ if (isset($_FILES['avatar'])) {
     }
     redirect('../../update.php');
 }
-
-//redirect('../../profile.php');

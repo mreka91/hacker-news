@@ -16,7 +16,7 @@ if (!function_exists('errorMessage')) {
         $_SESSION['errors'][] = "${message}";
     }
 }
-
+//adds a success message
 if (!function_exists('successMessage')) {
 
     function successMessage(string $message): void

@@ -44,4 +44,3 @@ if (isset($_POST['bio'], $_POST['email'], $_POST['password'])) {
         redirect('../../update.php');
     }
 }
-//redirect('/');

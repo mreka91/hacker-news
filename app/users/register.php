@@ -43,8 +43,3 @@ if (isset($_POST['name'], $_POST['bio'], $_POST['email'], $_POST['password'])) {
 
     redirect('/login.php');
 }
-
-
-
-
-redirect('/');
