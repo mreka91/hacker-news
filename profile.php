@@ -16,7 +16,11 @@ $userInfo = $statement->fetch(PDO::FETCH_ASSOC);
     <h1>Profile Page</h1>
 
     <div class="profile-pic">
-        <img src="/assets/images/profile/<?= $userInfo['avatar']; ?>">
+        <?php if (isset($userInfo['avatar'])) : ?>
+            <img src="/assets/images/profile/<?= $userInfo['avatar']; ?>">
+        <?php else : ?>
+            <img src="/assets/images/profile/avatar.png">
+        <?php endif; ?>
     </div>
 
     <div class="profile-info">
