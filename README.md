@@ -74,7 +74,7 @@ Open it up in your favourite browser
 
 ## Feedback:
 
-1. [Lucas Nordeborg](https://github.com/pnpjss/lafamilia)
+by [Lucas Nordeborg](https://github.com/pnpjss/lafamilia)
 
 1. All requirements meet, no errors, site runs smooth!
 
