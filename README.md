@@ -98,7 +98,7 @@ by [Lucas Nordeborg](https://github.com/pnpjss/lafamilia)
 
 Great work! Hard time to find misstakes. Learning a lot by reviewing this code.
 
-## New Hacker+ :
+## News Hacker+ :
 
 1. Like and unlike comments.
 
