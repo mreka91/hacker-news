@@ -160,6 +160,7 @@ svg {
 
 .comments-displayed {
   padding-top: 55px;
+  margin-bottom: 2rem;
 }
 
 .edit-com {
@@ -228,4 +229,38 @@ svg {
 .copyright span a {
   color: var(--accent-color);
   font-weight: 600;
+}
+
+.like-container-comment {
+  margin: 1rem;
+  margin-left: 0rem;
+}
+
+.commentsResponse-displayed {
+  box-sizing: border-box;
+  border: solid 1px whitesmoke;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  width: 20rem;
+}
+
+.commentsMain-displayed {
+  box-sizing: border-box;
+  border: solid 2px rgba(43, 160, 255, 0.856);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+}
+
+.btn-primary {
+  margin-top: 0.5rem;
+}
+
+.btn-info {
+  margin-top: 0.5rem;
 }

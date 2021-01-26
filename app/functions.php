@@ -24,3 +24,47 @@ if (!function_exists('successMessage')) {
         $_SESSION['success'][] = "${message}";
     }
 }
+
+function getCommentLikes($database, $commentId)
+{
+    $statement = $database->prepare('SELECT COUNT(comment_id) as count FROM comments_likes WHERE comment_id = :comment_id');
+    $statement->bindParam(':comment_id', $commentId, PDO::PARAM_INT);
+    $statement->execute();
+
+    $commentLike = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $commentLike['count'];
+}
+
+
+function isCommentLiked($database, $user_id, $comment_id)
+{
+    $db = ('SELECT * FROM comments_likes WHERE user_id = :user_id AND comment_id = :comment_id;');
+    $statement = $database->prepare($db);
+
+    $statement->bindParam(':user_id', $user_id);
+    $statement->bindParam(':comment_id', $comment_id);
+
+    $statement->execute();
+
+    $isLiked = $statement->fetch(PDO::FETCH_ASSOC);
+    return $isLiked;
+}
+
+
+function getCommentResponse($database, $commentId)
+{
+
+    $statement = $database->prepare('SELECT *, users.name
+    FROM comments_responses
+    INNER JOIN users
+    ON comments_responses.user_id = users.id
+    WHERE comment_id = :comment_id');
+
+    $statement->bindParam(':comment_id', $commentId, PDO::PARAM_INT);
+    $statement->execute();
+
+    $responses = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $responses;
+}
