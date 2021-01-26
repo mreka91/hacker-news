@@ -97,3 +97,11 @@ by [Lucas Nordeborg](https://github.com/pnpjss/lafamilia)
 1. In some places I'm expecting function instead of queries. Perhaps you know better!
 
 Great work! Hard time to find misstakes. Learning a lot by reviewing this code.
+
+## News Hacker+ :
+
+1. Like and unlike comments.
+
+2. Reply to comments and delete the reply.
+
+by [Mark Mados](https://github.com/MadosMark)
