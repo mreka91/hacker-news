@@ -42,7 +42,7 @@ $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
 <!-- COMMENTS -->
-<article>
+<article class="comment-article">
     <!-- shows a success message if the comment was posted succesfully -->
     <?php if (isset($_SESSION['success'])) : ?>
         <div class="alert alert-success">
@@ -70,7 +70,6 @@ $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <label for="content">Message</label>
                 <textarea name="content" id="content" class="form-control" required></textarea>
             </div><!-- /form-group -->
-
             <button type="submit" class="btn btn-lg btn-primary">Add comment</button>
         </form><!-- /col-lg-6 -->
     <?php endif; ?>
@@ -79,7 +78,6 @@ $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
     <div class="comments-displayed">
         <hr>
         <h2 style="color: blue;">Comments</h2>
-
         <?php foreach ($comments as $comment) : ?>
             <?php $responses = getCommentResponse($database, $comment['id']); ?>
             <div class="commentsMain-displayed">
@@ -87,33 +85,13 @@ $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <small><?= $comment['created_at']; ?></small>
                 <p><?= $comment['content']; ?></p>
             </div>
-            <?php foreach ($responses as $response) : ?>
-                <div class="commentsResponse-displayed">
-                    <small><?= $response['name']; ?> commented on comment: </small> <br>
-                    <small style="color: cornflowerblue;"><?= $response['content']; ?></small>
-                </div>
-            <?php endforeach; ?>
 
-
-            <?php if (isset($_SESSION['user'])) : ?>
-                <form action="app/posts/commentResponse.php" method="post">
-                    <input type="hidden" name="post_id" value="<?= $id ?>">
-                    <input type="hidden" name="comment_id" value="<?= $comment['id'] ?>">
-                    <textarea name="content" id="content" class="form-control" required></textarea>
-                    <button type="submit" name="submit" class="btn btn-primary">Reply to comment</button>
-                </form>
-                <?php if (isset($_SESSION['isEmpty'])) : ?>
-                    <p><?php echo $_SESSION['isEmpty']; ?></p>
-                <?php endif; ?>
-            <?php endif; ?>
             <div class="like-container-comment">
+                <?php $commentLikes = getCommentLikes($database, $comment['id']); ?>
+                <!-- like comment -->
+                <p>Likes:<?php echo $commentLikes; ?> </p>
                 <?php if (isset($_SESSION['user'])) : ?>
-                    <?php $commentLikes = getCommentLikes($database, $comment['id']); ?>
                     <?php $isCommentLiked = isCommentLiked($database, $user_id, $comment['id']); ?>
-                    <?php $userId = $_SESSION['user']['id'] ?>
-
-                    <!-- like comment -->
-                    <p>Likes:<?php echo $commentLikes; ?> </p>
                     <?php if (!is_array($isCommentLiked)) : ?>
                         <form action="app/posts/commentLikes.php" method="post">
                             <input type="hidden" name="id" value="<?= $comment['id'] ?>">
@@ -137,11 +115,37 @@ $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 </svg>
                             </button>
                         </form>
-
                     <?php endif; ?>
                 <?php endif; ?>
             </div><!-- /form-group -->
 
+            <?php if (isset($_SESSION['user'])) : ?>
+                <form action="app/posts/commentResponse.php" method="post">
+                    <input type="hidden" name="post_id" value="<?= $id ?>">
+                    <input type="hidden" name="comment_id" value="<?= $comment['id'] ?>">
+                    <textarea name="content" id="content" class="form-control" required></textarea>
+                    <button type="submit" name="submit" class="btn btn-primary">Reply to comment</button>
+                </form>
+
+            <?php endif; ?>
+            <?php foreach ($responses as $response) : ?>
+                <div class="commentsResponse-displayed">
+                    <small><?= $response['name']; ?> commented on comment: </small> <br>
+                    <small style="color: cornflowerblue;"><?= $response['content']; ?></small>
+                </div>
+                <?php if (isset($_SESSION['user'])) : ?>
+                    <div class="delete-com">
+                        <form action="app/posts/deleteCommentResponse.php" method="post">
+                            <input type="hidden" name="id" value="<?= $response['id'] ?>">
+                            <input type="hidden" name="post_id" value="<?= $id ?>">
+                            <button type="submit" class="btn  btn-sm btn-danger">Delete reply</button>
+                        </form>
+                    </div>
+                <?php endif; ?>
+                <?php if (isset($_SESSION['isEmpty'])) : ?>
+                    <p><?php echo $_SESSION['isEmpty']; ?></p>
+                <?php endif; ?>
+            <?php endforeach; ?>
 
             <!-- EDIT COMMENT -->
             <?php if (isset($_SESSION['user'])) : ?>
@@ -156,7 +160,6 @@ $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
                                     <button type="submit" class="btn  btn-sm btn-info">Edit</button>
                             </form>
                         </div>
-
                         <!-- DELETE COMMENT -->
                         <div class="delete-com">
                             <form action="app/posts/deletecomment.php?id=<?= $post['id']; ?>" method="post">
@@ -167,12 +170,10 @@ $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
 
                     <?php endif; ?>
                     <hr>
-                <?php endif; ?>
                 </div>
-            <?php endforeach; ?>
-
+            <?php endif; ?>
+        <?php endforeach; ?>
     </div>
-
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

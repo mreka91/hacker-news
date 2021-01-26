@@ -55,16 +55,18 @@ function isCommentLiked($database, $user_id, $comment_id)
 function getCommentResponse($database, $commentId)
 {
 
-    $statement = $database->prepare('SELECT *, users.name
+    $statement = $database->prepare('SELECT comments_responses.id, comments_responses.user_id, comments_responses.comment_id, comments_responses.content, users.name
     FROM comments_responses
-    INNER JOIN users
-    ON comments_responses.user_id = users.id
+    JOIN users
+    ON users.id = comments_responses.user_id
     WHERE comment_id = :comment_id');
 
     $statement->bindParam(':comment_id', $commentId, PDO::PARAM_INT);
     $statement->execute();
 
     $responses = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
 
     return $responses;
 }
